@@ -1,0 +1,107 @@
+The Career of a Python Developer:
+	Python Careers:
+		Software Engineer:
+			it's a person that built sofware/programs, so code to solve real world problems
+			if you want to work for maybe Google, Netflix.. you might apply to become a software engineer
+				and so use python in the coding interviews to solve coding problems and get the job
+		
+		Python Developer:
+			that's a very generic term but a python dev. is essentially somebody that solves problems
+				of a company with Python 
+		
+		Research Analyst:
+			it's a somebody like a scientific who use python to analyze his laboratory's data
+		
+		Data Analyst:
+			they use whatever data that a company has and analyze it to make buisness decisions
+		
+		Data Scientist:
+			they can do what most data analyst do but
+				they also have really strong mathematical, statistical and programming background
+					in order to create algorithms and new models
+		Backend/Web Developer:
+			can use tools like Django, Flask to build web applications, API services, etc
+		Testing/Automation:
+			can be as simple as testing a website/webapp, testing a mobile app,
+				writing python scripts to simulate user behaviors and test that a company's product works
+		Machine Learning Expert:
+			that creates ML models from lots and lots of data, 
+				models that can predict or create something useful for a company
+		
+		
+	What if i don't have enough experience:
+		keep in mind that job postings are put in order to weed out the weak candidates
+			by just making job sound harder, 
+				tougher than it really is in order to remove junior developpers from applying
+				
+		ask yourself is this job going to be tough ?
+			because if you apply to something that you're 100% qualified for, where is the room to grow ?
+	
+		how can you have good experience if you're just getting started ?
+			as with everything there's the regular way and 
+				there's the smart way : 
+					you see, experience doesn't come just from working at a company
+					there's many ways to demonstrate experience without a past job
+						and it's by : github, website, big projects, blog
+		
+		Getting the interview:
+			GitHub:
+				it's a great way to show that you actually code, that you have built projects
+					ways to improve github profile or to just add more experience is:
+						first: (start to) make a lot of commits (to get a good history of your work)
+						last: contribute, participate as you can less or more in open source projects
+
+			Website:
+				if you're a web dev, it's good to have your own website where to showcase your skills
+				this is something to speak about in interview and maybe why not how you built it
+				
+				however, keep in mind that you don't need to build the webiste from scratch
+					there's a ton of free templates/ressources that can be use like with:
+						create-tim.com
+						mashup-template.com
+					take example of : rocketgirl.herokuapp.com
+				
+			1-2 Big Projects:
+				having something like 1 big project make you sound more impressive 
+					than somebody that just built a ton of tiny projects
+				if you have no work experience, talk about these 1-2 big projects
+					on the work experience part in the resume
+			Blog:
+				another thing you can add to your resume,
+					especially if it's related to a technology you or the company are using
+				Medium: 
+					medium.com allows anybody to just post a blog post
+					it also allows to push an article to a specific popular publishers to get more readers
+					so create an account on it and start posting
+			
+		Talk about your portfolio projects, maybe talk about your website and how you built it,
+		talk about maybe a hackathon you participate or open source projects you have worked on
+		write a blog post on a specific technology that the company you're applying to is using
+		
+			all of that answer this question: do you have experience ?
+			
+		also know there's many things that you can add that are not developper
+			but that can make you a great employee
+				so if you have them, you can add skills like:
+					the ability to manage people and communicate with others
+		so know that any skill that is related to getting the job can be included
+		
+		'i have only 6 months / 1 year of coding experience': never show things like that on your resume
+		
+		
+	Now what ?
+		Where to Run Python:
+			we can run Python in laptop, desktop, servers, mobile, on any OS
+				as we have the Python Interpreter and obviously at least one python file
+		
+		Where To Apply Python: for
+			Any General Scripting Purpose
+			Email, SMS, Twitter Bots
+			File Processing (excel, pdf..)
+			Image Processing
+			Automation
+			Data Scraping
+			Data Visualization
+			Web Development
+			Machine Learning
+			etc

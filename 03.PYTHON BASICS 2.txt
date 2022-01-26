@@ -1,0 +1,157 @@
+Python Basics 2:
+	Conditionnal Logic:
+		if, elif, else
+	
+	Indentation in Python
+	
+	Truthy and Falsy:
+		None, False, 0, 0.0, 0j, '', [], {}, set(), range(0) will be evaluated as falsy value in a condition
+		
+	Ternary Operator: return_or_run_statement1 if condition_is_true else return_or_run_statement2
+	
+	Short circuiting:
+		happens when the interpreter is enough smart to say i already did enough work
+			like when evaluate if c1 or c2:..., if c1 is True, it's doesn't care about c2 and ignore it
+		can be done when using keywords like 'and', 'or'
+		we want our machine to be efficient, and it is quite efficient to do short circuiting
+		
+	Logical/Comparison Operators:
+		< > == != <= >=
+		and or
+		not: it's a keyword and also a function
+		
+	is vs ==:
+		v1 is v2 checks if v1 and v2 are at the same location in memory
+		v1 == v2: checks only if v1,v2 have the same value 
+				  and by the way when necessary python makes the appropriate type conversion
+				  
+		new data struc is always create at a new location in memory, even empty, not like simple type
+		[] is [] return False because these 2 empty list are created at different location in memory
+	
+	
+	Loops:
+	For Loops: 	for i in iterable:
+					do something
+				for k, v in dictionnary.items() | for v in dictionnary.values() | for k in dictionnary.keys()
+	
+	Iterables: 	as example, we have: list, dict, tuple, set, str, range object
+				iterable -> so it's is a collection that can be looped/iterated over
+				iterated -> means that we can go one by one to check each item in the collection
+	
+	range():	
+		for _ in range(start=0, stop, step_over=1): //do something
+		_ is a variable name that means i don't care about that variable, i just want to loop over range()
+		
+		range(10, 0, -1) will range reversly so from 10,9,8..to 1
+		range(10, 0, -2) will produce 10, 8, 6, 4 and 2
+		we can also use: list(range(5)) to easily create list of number
+		
+	enumerate(): helps to extract the index and the value of an iterable
+		for i, value in enumerate('Hi'): 	| 0 H
+			print(i, value)					| 1	i
+	
+	While Loops:
+		while condition_is_true:
+			#do_something
+		else:
+			#else_do_something_other_only_if_condition_becomes_false_or_if_there_isn't_a_break_in_while_loop
+		
+	break, continue, pass
+		break: to get out of the the loop
+		continue: means rerun the loop / return to the top of the enclosing loop
+
+	Dev Fundamentals 4: What's Good Code ?
+		Clean, Readable, Predictable, DRY
+		
+	Functions: helps us to keep our code DRY
+		def name_of_function(parameters):
+			#do_something
+		
+		print(name_of_function) : will show where in the memory the definition of the function is stored
+		
+	Parameters and Arguments:
+		Arguments: are used as the actual values we provide to a function
+		Parameters: it's the names of variables that are defined in the function definition
+		so params is used when we define the function
+		and argums when we call the function
+		
+		Positional arguments are arguments that required to be in the proper position /make code more clean
+		Keyword arguments: that allow us to not worry about the position \also increase readability of code
+		we have also Default Parameters
+		
+	return: function return by default None, so if the return keyword is not marked in the function
+	
+	Functions principle:
+		should do one thing really well, that doesn't mean the code has to be one line huhu
+		should return something
+	
+	Methods vs Functions
+	
+	Docstrings:
+		def name_of_function():
+			''' Info: it's the docstrings info place '''
+			print('python')
+			
+		help(name_of_function_without_parentheses)
+		print(name_of_function_without_parentheses.__doc__)
+		
+	Clean Code:
+		def is_even(num):							Clean Code -->	def is_even(num):
+			if num%2 == 0:												return num%2 == 0
+				return True
+			else:
+				return False
+				
+	args and kwargs:
+		def f(*a):
+			print(*a)
+			
+		args: give us access (inside the function) to a tuple of as far as positional arguments given 
+		kwargs: give us access too to a dictionnary of keywords arguments 
+	
+	Rule in function parameters position:
+		def func(pos_params, *args, default_params='some_value', **kwargs):
+			pass
+			
+	Scope: what's variable do the program have access to ?
+		if it isn't inside a function, it's part of the global scope
+		inside a function, we have what's call local scope
+			notice that function parameters is part of the local scope 
+		
+		
+		Set of rules that the python interpreter goes through to check a variable:
+			1- start with local scope
+			2- if there is nothing in the local, is there a parent local scope ?
+			3- check to the global scope
+			4- check if the variable/function is an built-in python functions
+		
+	global keyword:								dependency injection:
+		total=0										
+		def count():								def count(t):
+			global total								t+=1
+			total +=1									return t
+			return total
+													total=0
+		count() # returns 1							print(count(count(count(total))))
+		count()	# returns 2
+	
+	nonlocal keyword: 
+	it's a way for saying hey, i want to use a variable that's not a global variable 
+	but is outside of my scope (outside of my function per example)
+	
+	Why do we need Scope ? 
+		it's because of memory, management of memory
+		things are like when a function finished to run, all his local variable get deleted from memory
+		
+		
+		
+	Index of Terms:
+		Conditionnal Logic
+		Logical/Comparison Operators
+		Loops
+		Iterables
+		Functions
+		Parameters and Arguments
+		Scope
+		
+		

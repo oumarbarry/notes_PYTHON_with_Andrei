@@ -1,0 +1,57 @@
+PYTHON: Become a Python Professional Developper
+	Python basics--------------------------------
+	Advanced Python------------------------------
+	Workspace------------------------------------
+	Careers-------------------------------------
+		Scripting--------------------------------
+		Data scraping----------------------------
+		Automation-------------------------------
+		Web development--------------------------
+		Machine Learning-Data science------------
+		
+-------------------------------------------------
+What is a programming language ?
+	programming is just a way for human to give instructions to computers
+	machines speak binary language,
+	so humans created programming language that is between human language and machines language
+	
+	programming language is higher level if closer to human language,
+	so is lower level if closer to machines language like assembly
+	
+	so in order to translate the source code, we need interpreter/compiler
+	interpreter runs the code line by line
+	compiler take all the code at once and give as ouput an binary excecutable file
+	
+	programming language is just a set of instructions that can be give to an translator to translate them in binary code, in order to runs machine, to give them right instructions
+	
+Python Interpreter:
+	We have Python, the language
+	but as interpreter we have:
+		cpython: so python interpreter written in c //those you download at python.org
+		jython: written in java
+		pypy: written in python
+		iron python: written for .net
+		
+	so the cpython interpreter runs our source code and generate bytecode that is closer to machine code,
+	then it's use the cpythonVM that run bytecode, to generate binary code
+	and then this code gets run on our machine
+
+How to run python code:
+	Terminal
+	Code editors: Sublime Text, VS Code
+	IDEs: Pycharm, Spyder
+	Notebooks: Jyputer
+	
+	Online tools: like repl.it, glot.io
+	
+//The story of python, by its creator, Guido van Rossum on youtube
+Python 2 vs Python 3:
+	python comes in 1990-1
+	in 2008, breaking update has been made by guido, that would change some things that he no longer like in the language/interpreter
+	then comes python 3, but the key difference between python 2.x and python 3.x are not big
+	in 2020, python will no longer be supported
+	
+	py3readiness.org
+	geeksforgeeks.org
+	
+How python works: explain it in simple term to a non-developer

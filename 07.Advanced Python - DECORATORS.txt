@@ -1,0 +1,54 @@
+Python Decorators:
+	High Order Function:
+		it's any function that
+			either accepts a function as a parameter 
+			or returns a function
+			
+	Decorators:
+		in python, function are what we call first class citizens
+			that is they can act like variables,
+				can be assigned to variables, can be passed as arguments
+				
+		a decorator is simply a function that supercharges/wraps another function
+			and enhances/changes it
+		
+	Decorator Pattern:
+		def decorator_pattern(func):
+			def wrap_func(*args, **kwargs):
+				#place code here
+				func()
+				#or here to enhance the 'func' function
+			return wrap_func
+			
+		#then
+		
+		@decorator_pattern   				
+		def greeting(hello, emoji=':)'):
+			print(greeting, emoji)
+		hello('salut') -> #call of the function
+		
+		#-- @decorator_pattern is equals to:
+				decorator_pattern(greeting)('salut')
+			or to:
+				hi = decorator_pattern(greeting)
+				hi('salut')
+		
+	Use Case of Decorators:
+		example:
+			from time import time
+			def performance(fn):
+				def wrapper(*args, **kwargs):
+					t1=time()
+					execution = fn(*args, **kwargs)
+					t2=time()
+					print(f'took {t2-t1} s')
+					return execution
+				return wrapper
+
+			@performance
+			def long_time():
+				for i in range(1000000):
+					i*5
+
+			long_time()
+		

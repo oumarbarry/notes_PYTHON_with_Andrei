@@ -1,0 +1,94 @@
+WEB DEVELOPMENT:
+	How Websites Work ?
+		the browser send a request by the way of Internet to a server that is somewhere in the world
+			the browser send the request by using the http or the https protocol
+				when the server receives the request, it runs some business logic
+					business logic that can be write in python or many other language
+						these business logics defined what files, what data will be return
+					so ther server returns some build html, and maybe css, js, img files or even more 
+				when receiving the server response the browser displays the data
+	
+	Building a Flask server:
+		python -m venv Oenv #for windows, it will be: py -m venv venv
+		export FLASK_APP=server.py
+		export FLASK_ENV=development
+		#in Powershell instead of 'export', we use $env:FLASK_APP='server.py'
+		
+		Flask Templates
+		Flask Static Files: CSS, JS, Favicon.io
+		Templating Engine: Jinja2
+		Route Url Parameters, with Variable Rules
+		Mime types:	
+			https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+			
+			let's talk about this idea of data transfer from servers to the browsers
+			in server response, there is the field 
+				Content-Type: text/html
+				where text/html is a mime type
+			
+			Browsers use this mime type, not the file extension, to determine how to process a URL
+				so they look at the Content-Type that our flask app sends automatically
+					to determine what to do with a file
+				
+			A media type or MIME type (Multipurpose Internet Mail Extension) is
+				a standard that indicates the nature and format of a file
+				
+			Important Mime types for Web Developers:
+				application/octet-stream
+				text/plain
+				text/html
+				text/css
+				application/javascript
+				image/gif, image/png, image/jpeg
+				application/json
+				
+			websites work so, by sending all this data
+				and letting the browser take care of building the pages for us
+			
+			so notice that some servers, instead of sending html,css,js 
+				just sends us json data
+					like swapi.co website
+				or even just images
+					like robothash.org
+			
+			at the end of the day, all a server does is sending some data
+			
+			
+	BUILDING A PORTFOLIO:
+		mashup-template.com
+		Create a virtualenv, install required package
+		Create static and templates folder
+		Clean and Customize the template files
+		Create and configure all the urls routes
+		Configure a database (optional)
+		pip freeze > requirements.txt
+		
+		once all done, Upload your website online with per example
+			pythonanywhere.com
+				so create an account on python-anywhere
+				create a github project and clone it locally
+					git clone <project-url>
+				copy all needed file in this new repositories
+					git add .
+					git commit -m 'message'
+					git push origin master
+			
+			help.pythonanywhere.com/pages/Flask/
+			
+				then open a bash console in python-anywhere
+					git clone <project-url>
+				Create manually a webapp
+					let's configure
+						in the webtab, at 'source code': add path to the project name directory
+						in a bash console
+							create an virtualenv and activate it
+							run: pip install -r requirements.txt
+						in the webtab again, at 'Virtualenv': add path to the virtualenv name directory
+						
+				edit the wsgi configuration file, we will end up with something like this:
+					import sys
+					path = '/home/username/path_to_flask_app_directory'
+					if path not in sys.path:
+						sys.path.append(path)
+					
+					from main_flask_app_file import app as application

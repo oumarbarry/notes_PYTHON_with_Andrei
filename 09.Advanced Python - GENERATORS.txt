@@ -1,0 +1,138 @@
+Python Generators:
+	Generators:
+		generators allow us to generate a sequence of values over time
+		range() is a generator
+		generator is a special type of thing in python that allows us to use a special keyword called yield
+			and it can pause and resume functions
+		
+		iterable: 
+			it's any object in Python which we are able to loop through
+				and underneath the hood it has the dunder __iter__ method, so when the object is created, 
+					this dunder allows us to have an iterable object that can be iterate over
+		
+		iterate/iteration: 
+			is the act of taking an item from an iterable, doing something to it, then going to the next one
+			
+		everything that is a generator is an iterable but it's not always reciprocal
+			so a generator is a subset of an iterable
+			
+		the difference between the two is the way we implement them
+		generators are usually functions
+		
+		example:
+			def generator_func(num):
+				for i in range(num):
+					yield i*2
+					
+			g = generator_func(100) -> creates a generator object, grace to the yield keyword
+			next(g) -> output: 0*2 = 0
+			next(g) -> output: 1*2 = 2
+			next(g) -> output: 2*2 = 4
+		
+
+		yield pauses the function and comes back to it when we do something to it which is called next
+		
+
+	Generator Performance:
+		generators are more performant than iterator, especially when looping
+		they are really really useful when calculating large sets of data,
+			particularly if we're using long time loops where we don't really want to store all that data 
+				and we don't need to calculate everything at the same time
+				
+			
+	
+	Under the Hood of Generators:
+		example1: mimic of the for loop
+			def special_forloop(iterable):
+				iterator = iter(iterable)
+				while True:
+					try:
+						print(next(iterator))
+					except StopIteration:
+						break
+					
+		example2: mimic of the range function
+			class MyRangeGenerator:
+				current_item_pos = 0
+				def __init__(self, start=0, stop):
+					self.start = start
+					self.stop = stop
+					
+				def __iter__(self):
+					return self
+					
+				def __next__(self):
+					if MyRangeGenerator.current_item_pos > stop:
+						MyRangeGenerator.current_item_pos += 1
+						return MyRangeGenerator.current_item_pos - 1
+					raise StopIteration
+		
+			gen = MyRangeGenerator(100)
+			for i in gen:
+				print(i)
+		
+	Fibonacci:
+		def fib(num):
+			a,b=0,1
+			for _ in range(num+1):
+				yield a 
+				temp=a
+				a=b
+				b=temp+b
+		
+		for x in fib(20):
+			print(x)
+			
+		#for more comprehension of the process
+		def fib(num):
+			a,b=0,1
+			loop=0
+			print(f"outside looping: a-{a} b-{a} ")
+			
+			for _ in range(num+1):
+				loop+=1
+				print(f"loop count: {loop}")
+				print(f"inside looping before yield: a-{a} b-{b}")
+				yield a 
+				print(f"inside looping after yield: a-{a} b-{b}")
+				temp=a
+				a=b 
+				b=temp+b
+				print(f"inside end of loop tour: temp-{temp} a-{a} b-{b} ")
+		
+	
+		for x in fib(5):
+			print(f"call of the fib function - output of yield 'a' : {x}")
+			
+		Result:
+			outside looping: a-0 b-0
+			loop count: 1
+			inside looping before yield: a-0 b-1
+			call of the fib function - output of yield 'a' : 0
+			inside looping after yield: a-0 b-1
+			inside end of loop tour: temp-0 a-1 b-1
+			loop count: 2
+			inside looping before yield: a-1 b-1
+			call of the fib function - output of yield 'a' : 1
+			inside looping after yield: a-1 b-1
+			inside end of loop tour: temp-1 a-1 b-2
+			loop count: 3
+			inside looping before yield: a-1 b-2
+			call of the fib function - output of yield 'a' : 1
+			inside looping after yield: a-1 b-2
+			inside end of loop tour: temp-1 a-2 b-3
+			loop count: 4
+			inside looping before yield: a-2 b-3
+			call of the fib function - output of yield 'a' : 2
+			inside looping after yield: a-2 b-3
+			inside end of loop tour: temp-2 a-3 b-5
+			loop count: 5
+			inside looping before yield: a-3 b-5
+			call of the fib function - output of yield 'a' : 3
+			inside looping after yield: a-3 b-5
+			inside end of loop tour: temp-3 a-5 b-8
+			loop count: 6
+			inside looping before yield: a-5 b-8
+			call of the fib function - output of yield 'a' : 5
+			inside looping after yield: a-5 b-8
+			inside end of loop tour: temp-5 a-8 b-13

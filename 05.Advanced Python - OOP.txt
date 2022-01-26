@@ -1,0 +1,173 @@
+Advanced Python OOP:
+	Everything is object in Python
+	
+	Wikipedia: History of programming languages
+	res: data-flair.training/blogs/python-multiple-inheritance/
+	
+	What's is OOP:
+		OOP is a paradigm that's a way for us to think about our code and structure our code
+			in a way that is easier to write, extend and maintain
+		OOP helps us to make code more managable, 
+			more organized as a real life project's code will perforce get bigger and bigger
+		
+		OOP is about breaking up functionality and data into different pieces
+			that model the real world into separate objects
+			
+	
+	Creation of own class/objects:	
+		Class: blueprint of what we want to create
+			attributes: his properties
+			methods: his actions
+		
+		A class has been instantiate: means we have created instance from it
+		Instances: objects
+		
+		class CamelCaseAndNeverPluralConventionName:
+			pass
+		
+		class NameOfClass:
+			class_attribute = 'something'
+			def __init__(self, param1, param2):
+				self.param1 = param1
+				self.param2 = param1
+			
+			def method(self):
+				pass
+			
+			@classmethod
+			def class_method(cls, other_params):
+				pass
+			
+			@staticmethod
+			def static_method(paramA, paramB):
+				pass
+		
+		class PlayerCharacter:
+			membership = False #it's called 'class attributes'
+			
+			def __init__(self, name):
+				self.name = name #called 'object attributes'
+				
+			def run(self):
+				return 'Ruuunnn'
+			
+		For accessing a class attribute inside a class, it's must be precede by self or NameOfClass:
+			NameOfClass.class_attribute_name
+		For accessing an object attr inside a class, it must always be precede by self:
+			self.regular_attr
+			
+	self: 
+		refers to whatever is to the left of the . notation
+		allows us to have reference in class blueprint to something,
+			to an object that hasn't been created yet
+		
+		self is obligatory as first positional parameters for a method,
+			if ever you predict that it's a method that can/will be call (by the programmer user)
+	
+	@classmethod and @staticmethod:
+		the only difference is the idea that we don't have access to 'cls', the class parameter in staticmethod
+		
+		@classmethod
+		def func(cls, other_param_like_obvious_name):
+			#cls_is_the_class_itself_per_example_PlayerCharacter
+			return class(other_param_like_obvious_name) #equals to PlayerCharacter(given_name_var)
+	
+	
+	Dev Fundamentals 5: Test your assumptions
+	
+	4 Pillars of OOP:
+		Encapsulation: 
+			for packing things that have same meaning (data, actions on these data),
+				so that we are able to mimic what happens in the real world, right ?
+						
+		Abstraction:
+			it means hiding of information and giving access to only what's necessary
+			
+		Public vs Private Variables:
+			there is not true privacy in python,
+			but there's the convention to put _ before an attribute name to specify his privacy
+				example: _age
+		
+		Inheritance:
+			object is the most base type, the most high level class in python
+			every class in python inherite the object class
+		
+		Polymorphism: 
+			poly means many, morphism means form so polymorphism stands for many form
+			The idea of polymorphism refers to the way in which object classes
+				can share the same method name but those method names can act differently based on
+					what object calls them
+					
+			the same method will always give us different output because of the object that call it
+				that's polymorphism
+			
+			polymorphism is the ability to redefine method/actions for derive class
+		
+		#example:
+			class SuperList():
+				def __len__():
+					return 1000
+
+			s = SuperList();
+			print(len(s))
+			
+			class User:
+				def __init(self, email):
+					self.email = email
+				
+				def signin(self):
+					pass
+					
+			class Wizard(User):
+				def __init__(self, email, name, power):
+					super().__init__(email)	#equals but better than: User.__init__(self, email)
+					self.name = name
+					self.power = power
+					
+				#here can come code for Wizard's class own method
+				#or methods that she share with User but that she re-implement
+				
+				
+					
+	super(): refers to the inherit class
+	
+	Object Introspection:
+		Introspection in programming means the ability to determine the type of an object at runtime
+		
+			dir(an_object) : returns all the method and attr that an object has
+			and in editor like vscode whenever we type . in front of an object name,
+				the editor will use the ability of introspection to list out all available methods and attr
+
+
+	Dunder Methods: 
+		these special magic methods give us power to customize in depth our classes
+		they allows us to change the behaviour, 
+			so we get custom result when we call built-in functions on our object
+			
+		examples: 
+			__init__ : the constructor
+			__str__ : returns str representation of the object
+			__len__ : we can modify it to change the behaviour so when we call len(object), we get custom result
+			__del__ : modify it to change the result when your call 'del' on your object
+ 			__call__
+			__getitem
+			etc
+			
+	Notes to me: i've just discovered that ; is allow in python code like within c++ code
+		
+	isinstance(object, Class)
+	issubclass(Class1, Class2)
+	
+	Multiple Inheritance: 
+		with great power comes great responsability 
+			as with multiple inheritance things get more and more complex
+		so be aware of this, be aware of the functionality, the data of inheritated class
+			be aware of the order of inheritance, 
+		
+		MRO - Method Resolution Order
+			using the algorith named Depth First Search
+			so MRO is here as a way to define in what order, an object/class is going to inherit
+			
+			object.mro()
+			object.__mro__
+			

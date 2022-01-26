@@ -1,0 +1,351 @@
+Machine Learning + Data Science:
+	Machine Learning:
+		we learned that machines are really really good at certain things, 
+			machines can perform tasks really really fast
+		and we learned through Python that we can control these machines and get them to do tasks for us
+			
+		so machines are really good at things that we can describe, that we can write in code to do something
+		they are really good at working on tasks that have defined rules all the way up to a chess game like
+		
+		but then as soon as we stop having these specific rules, things start to break down
+		for example what is a cat ? could you really describe that to a computer
+			yes sure we can say a cat has fur, has whiskers, a cat meows,
+				but when the computer asks us back what's is fur, what's whiskers...
+		
+		so the harder things become to describe the harder it is for us to tell machines what to do 
+		
+		we can tackle this problem using machine learning
+		
+		there is so many applications, with machine learning, we could have self-driving cars, vision processing, 
+			robots, language processing, translations, recommendation engines, stock price predictions.....
+		
+		the goal of machine learning is to make machines act more and more like humans
+			because the smarter they get the more they help us humans, accomplish our goals
+		
+	AI, ML, DL, DS:
+		Artificial Intelligence:
+			AI simply means a human intelligence exhibited by machines
+			an AI is a machine that acts like a human 
+				but actually in our industry what we have is something called Narrow AI
+			Narrow AI to signify :
+				that actually machines can only be just as good or even better than humans at A specific task 
+					like detecting heart disease from images or playing at the game of Go
+				
+				that actually those machines can only do one thing really well
+				
+				that actually machines can't be like humans and have multiple abilities
+					what's called General AI, something that we are very very far away from now
+				
+		Machine Learning:
+			machine learning is a subset of AI
+			it's an approach to try and achieve AI through systems that can find patterns in a set of data
+			and actually Stanford University describes machine learning
+				as the science of getting computers to act without being explicitly programmed
+					that is getting machines to do things without us specifically saying do this then do that
+		
+		Deep Learning:
+			deep learning or deep neural networks is just one of the techniques for implementing ML
+			
+		Data Science:
+			the field of data science simply means analyzing data, looking at data
+				and then doing something with results, usually some sort of buisness goal
+	
+	How Machine Learning Works:
+		the fact is that machines and computers don't really understand words
+			if i ask my computer hey is this a snake ?
+				my computer is going to have no idea what i'm talking about
+		when i look at an image of a snake no matter what color it 
+			whether it's a cartoon or real life image or
+				whether it has different directions with different animals in it
+					i can identify a snake,
+						so right away our brains just know
+		but to tell my computer what a snake is, is almost impossible
+			because there's so many factors
+				if i say that a snake doesn't have legs and arms, a snake has scales, etc
+					then the computer is going to ask me, what are scales ?
+		however, with machine learning we can now teach a computer 
+			to know what a snake is or at least pretended like it knows
+
+		what we do in programming, we give an input, per example, a list of 1,2,3 
+			and we give this input to a function, that will multiply our list items by 2
+				so we receive as output a list of 2,4,6
+		so as programmers we write the input and the function 
+			and all the computer does is actually just calculate the output, using the input and the function
+		and the computer can do that really really fast for us even it's a list of one millions items
+			
+		but machine learning changes this idea, 
+			it says, hey give me the input and give me what you want the output to be,
+					that is give me all the data that you have
+						and by the way tell me what the answer is or at least the output that you want
+		and then the interesting part is that as developers, we give this input and output 
+			but with machine learning we say, hey machine, it's to you to figure out what this function is
+				because if i give you a list of snake pictures and other animals
+					and I want you to tell me if an image has a snake or not
+						or maybe from these 100 images which one of them have snakes ?
+							well i don't know how to tell you how to do that,
+								so figure it out yourself
+									so with ML the function is generated or created by the machine
+		and this is machine learning, it's simply a function
+			so instead of us writing the function like we have to before,
+				now with machine learning, the machine writes the function,
+					we just have to give it the input and the output 
+		good to know, the word 'function' can be replaced by model, algorithm, bot or brain in ML
+
+		now the interesting side effect of this, is that often when we talk about machine learning models,
+			these functions are really hard to understand because the computer comes up with them,
+				so as a human it's hard to understand how they work,
+					and as these models get more and more complex, it becomes harder and harder
+						for us as developers to understand how things work, which raises a lot of issues
+
+		so essentially in order to train these machines to create these functions we have to give them data
+			and for them to be really really good, we have to give them lots and lots of data
+
+		then at the end of the day, machine learning is simply
+			a computer writing its own function based on the inputs and outputs
+			
+			
+	History of Data: 
+		why do we even care about machine learning, how is that useful and how do we get here ?
+
+		well if you think about a business, because most technology evolves from business needs,
+			first we have the advent of computers and the ability for businesses to use computers
+				to do things really really fast and efficiently, so that they gain an edge
+
+			and then we got spreadsheets like Excel/CSV files that were amazing because
+				we can store these data that businesses generate, such as customer data 
+			and then people got really really good at analyzing these files to make business decisions
+				'maybe forecasting that December sales are going to be high because while the past 2 years
+					 we've had really high December sales because of Christmas'
+			
+			and then, as companies got more and more data, 
+				we started getting this idea of relational databases,
+					spreadsheets and csv files were great 
+						but like we started getting more and more information and data,
+							we needed a better way to organize things, to understand things from our data
+			that's when we got things like MySQL which allowed us:
+				instead of using spreadsheets
+					to use a language called SQL to read information from our database 
+				but similar to spreadsheets 
+					to use the data that we gathered from the business to make business decisions
+						so that our business becomes even more profitable
+			
+			and then, we had emerge this fancy term of big data, 
+				we had big companies like Facebook, Amazon, Twitter, Google 
+					that started accumulating more and more data, 
+						an insane amount of data that you simply couldn't store in a spreadsheet,
+							data like user actions, user likes, user purchasing histories
+			this idea of big data meant that we had so much data, these companies had so much data 
+				and sometimes unlike relational databases which had to be a structured form of data
+					sometimes we got really messy unstructured data
+			and that's where we started getting this idea of NoSQL, 
+				where things like MongoDB came into existence,
+					things where you can store unstructured data 
+						and hopefully make business decisions out of that
+							'like if you were Amazon, you can use customers purchasing history,
+								to recommend different products'
+
+			then this idea of data getting more and more data, has turned us into using machine learning
+				because at some point we have so much data that as humans we can't just look,
+					like we did at spreadsheets, look at columns and make business decisions
+						we still could but then we'd be wasting all this data 
+							that we've been getting over the years
+			so companies like Facebook and Google that collect massive amounts of data, every single day,
+				are turning to things like machine learning
+					so that instead of humans looking at the data and trying to figure things out,
+						we give this data to machines, because they're better able, even better than humans
+								to make business decisions
+			else this idea of machine learning, really came to be,
+				because of this growth in data that we received from businesses
+					as well as the improvements in CPU, GPU and computer advancements
+			so using the massive amounts of data and massive improvements in computation,
+				we can use these machines, to make decision for us, just like we used to with spreadsheets
+			
+		at the end of the day, we care about ML only because
+			we're able to use machines to predict results based on incoming data
+			
+	Types of Machine Learning:
+		Supervised Learning:
+			in supervised learning, the data that we receive, already has Categories/Labels, 
+				so we know if our function is wrong/right
+			
+			so in a supervised learning scenario, we can do things like:
+				Classification: 
+					where the ML model simply draws a line
+						to decide about things like this is an apple, this is a mango
+				Regression:
+					where we can do things like stock price predictions
+		
+		Unsupervised Learning:
+			where data don't have labels, 
+				so we can't tell our machines that they're wrong/right,
+					as there are no true categories,
+						so we let the machine, create these categories for us
+						
+			so in a supervised learning scenario, we can do things like:
+				Clustering:
+					where the machine try to figure out, to create groups of data
+				Association Rule Learning: 
+					where we associate different things to predict what a customer might buy in the future
+		
+		Reinforcement Learning:
+			reinforcement is all about teaching machines
+				through trial and error, through rewards and punishments
+			
+			reinforcement is seen for skill acquisition and real time learning
+				so per example it's seen a lot in ML programs that play video games
+		
+		
+		so as seen, ML has differents subsets, so differents ways to accomplish its goal,
+			topics like Neural Network, Decision Tree, Support Vector Machines, K-Nearest Neighbor
+				are simply algorithms that are used with these subfields
+					in order to come to predictions
+					
+	
+	MACHINE LEARNING 101:
+		Facebook Machine Learning Structure/Guide:
+			Goal defining (what are we trying to do ? how do we define success ?), 
+			Data gathering (collecting), 
+			Data parsing (spliting),
+			Models Creation (experimentation with different, multiple algorithms)
+			Accuracy testing
+			then we go back and try different things until our model is in line with our defined goal
+			
+		what a ML expert, according to Andrei, does as job ?
+			0- Collecting/getting the data
+			1- Import the data
+					from csv files per example
+			2- Clean the data
+					in an ideal world, we have perfect data, 
+						all the colums & rows of a csv file are filled in 
+							and everything is perfect
+					but in the reality, 
+						sometimes we have missing labels, missing data
+							sometimes we have unusable data
+					so we clean the data to avoid later to get errors or make bad predictions
+			3- Split the data - Training Set & Test Set:
+					we split our data, like our excel sheet into
+						a training set:
+							that we use as input,
+						and then the test set:
+							that we use to test the output
+							because we have to tell the machine 
+								wheter it got the answer right or wrong,
+									wheter our model is good or bad
+					then we may just decide per example that
+						80% of the data is going to the training set and 20% is the test set		
+			4- Create a Model:
+					most likely what we do, when we create a model, 
+						is just to import an algorithm,
+						just to simply do an import and then decide what algorithm to use 
+			5- Check the Output:
+					we check if the output match with the test set
+			6- Improve
+					most likely, the first time around, the model won't get things completely right
+					so based on the test set, we should notice what to improve,
+						so maybe we might give to the model, some extra inputs
+						or we might want to change the used algorithm
+				 		
+		
+		the hardest part is actually grabbing the data,
+			because the more data we have, the better, the more input we will have
+				the more training sets we can have, the more we could improve our model
+					the more data we have, the more options we have as machine learning expert
+							but it's really tough/hard to collect good data, good data set
+
+		companies like Google and Facebook are really really valuable 
+			because they're the only ones that can collect that much data 
+				and that's why machine learning is pioneered by these companies 
+					that have large sets of data 
+		so they can share their model, they don't care 
+			but they usually keep their data private 
+				because that's what gives them a competitive advantage
+		
+		you and I just simply don't have enough data to really make machine learning worth it
+			so most companies don't actually need machine learning or can implement good machine learning, 
+				because they don't have enough data
+
+
+	Tools In Machine Learning:
+		Numpy: a library that helps us to use list and arrays, and specifically multi-dimensianal arrays
+		Pandas: python data analysis library
+		Scikit-learn: that provides us all necessary algorithms for ML in python
+		Matplotlib: for data visualization
+		
+		Jupyter Notebooks
+		
+		kaggle.com: a community of machine learning expert with free access to a ton of datasets
+			
+		
+	Data Science, ML:
+		so we can use kaggle to grab our data
+			but we can also by example use BeautifulSoup to scrape web pages data
+			
+		after we use pandas to import our data in dataframe, so we could easily manupilate things
+		Pandas Cheat Sheet:
+			https://github.com/practicalAI/practicalAI/blob/4ad626098aca25db5628fe67895e738d5a5c2c2a/notebooks/03_Pandas.ipynb
+		
+			import pandas as pd
+			
+			data_frame = pd.read_csv('data.csv')
+			data_frame.shape
+			data_frame.values
+			data_frame.describe()
+			
+			data_frame[ data_frame["Age"]>40 ].head() #Filtering
+			
+		Seaborn: statistical data visualization library, build on top of matplotlib
+		Bokeh: an interactive visualization library
+		
+		Scikit-learn: to create the model
+		
+		For improvements: 
+			so we can give it more imput data,
+				but be careful to have enough test data
+			or we can modify the model
+			another improvement is that if we can collect more data
+				is to perhaps have more columns(often also called parameters or features)
+			or we can change the algorithm
+			
+			
+		In real life, to train a really complicated model, we (must) have millions and millions of rows
+			so creating the model (running the 'fit' method) take a really really long time 
+				and most of the time we run these types of operations 
+					on powerful GPUs or sometimes in the cloud
+						because we couldn't be able to run them on a regular computer
+						
+			so because creating the model is very time consuming,
+				we wouldn't want to every user that submits data to actually run the fit method,
+					that's where come 'model persistence'
+			
+			model persistence is all about, saving the trained model in a file
+				so next time we want to make predictions, 
+					we load the file, in a user phone per example and use the model
+			
+			by example we use the Scikit-learn joblib module that will create a binary file of our model
+				
+			so now anytime, we make an improvement to the model, 
+				we simply just save/re-create the file again
+			by this way, only the buisness owners that have a lot of compute power can train the model
+				
+		https://github.com/aneagoie/ML-Notes/blob/master/iris.ipynb
+			
+		What's next ?
+			Learn in depth about the ML Steps Guide
+			Create customs models with Tensorflow, ML Engine
+			Use things like Retrainable models, Pre-trained models that comes from Google, Facebook...
+			
+	ImageIA Project: 
+		https://github.com/OlafenwaMoses/ImageAI
+		image ai is a python library with self-contained computer vision capabilities
+		
+		instead of us having to build a computer vision model all from scratch,
+			we can use pre-existing tools to use something like the imageAI library,
+				to solve a problem or maybe create an entire business around
+		
+		the idea is that ML model is never going to be perfect
+			but ideally we can create a model that is enough useful
+				to derive some sort of business outcomes, positive business outcomes
+			
+		so the real power of ML comes
+			when we combine pre-built models that big companies have already built for us
+				to use them to solve our day to day problems or our business problems		

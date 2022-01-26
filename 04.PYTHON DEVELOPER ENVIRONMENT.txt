@@ -1,0 +1,46 @@
+Python Developer Environment
+	Terminal: for fast script testing purpose
+	Code Editors
+	IDEs
+	NOtebooks
+	
+	A simple rule is that code editors are lightweight 
+		that give features like autocompletion, linting and so for extra stuffs you must download them also
+	while IDEs are fully fledged environment 
+		that provide ton of extra stuff like debugging, code formatting, unit testing, code snippet
+	
+	Sublime Text
+	Optional Terminal Command:
+		Linux						Windows 
+			open .						start . 
+			touch i.htm					echo > index.html
+			mv i.htm a.htm				rename index.html home.html
+			rm a.htm					del home.html
+			rm -r webapp				deltree webapp
+			pwd							cd (only for cmd)
+			ls							dir
+			clear						cls
+			cd <path>					cd <path>
+			open -a "App Name" <optional_file>
+			
+		(only on MacOS): say <sentence> #this command act the computer to voice the sentence
+		
+	Visual Studio Code
+	PyCharm
+	
+	Code Formatting: 
+		PEP8 : Style Guide for Python Code
+			tells us what good clean Python code shoud look like
+	
+		PEP: Python Enhancement Proposals
+			these are proposals that are given in order for us to have a standardized way to write code
+		
+	
+	Anaconda: a distribution/plateform of Python for DataScientist/Engineer
+	Jupyter Notebooks
+		Cells
+		Shift+Enter
+		Code-Markdow switchup
+		
+	
+	

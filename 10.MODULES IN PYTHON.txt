@@ -1,0 +1,145 @@
+Modules in Python:
+	Modules:
+		each .py file is a module
+		How to organize code:
+			with functions, classes, one .py file, modules
+			
+		name of modules follow snake_case, all variables name's convention
+		
+		how to divide code in module:
+			similar to class or function, we want divide up the code into chunks that make sense
+			
+		__pycache__ folder is created everytime we run a file with import statement, 
+			so when we're using modules
+				inside is created compiled cpython file(s) that cache all imported modules
+	
+	Packages:
+		a package is a folder that contains modules and maybe also other packages
+		one of the rules of a python package is that you must have an _init__.py file, on his root
+			it's the way the python interpreter recognizes a folder as a python package
+		
+		packages/modules can be imported in different ways, so the recommandation is to always be explicit
+		
+			import ... (as) ...
+			from ... import ...
+			from ... import ... (as) ...
+		
+		when we import something in python, if it finds the module, it runs the code
+			so it adds this code to memory because we're going to have to use it
+			
+	__name__:
+		a module can be so import or run:
+			if run:
+				__name__ = '__main__'
+			if imported:
+				__name__ = 'Name_of_the_module or package_path_until_module_location'
+		
+		this dunder variable is commonly use to test the entire module or a piece of code on the run module
+			
+		
+		if __name__ = '__main__':
+			#do_something_for_the_run_module
+		
+			#this is a good way to check how our modules are being used wheter imported or run
+
+
+	The Power of Python:
+		The Standard Library: Python Built-in Modules
+			when you import a module/ a library that you don't know what it does, a key thing is to run:
+				help(module)
+				dir(module)
+			
+			example:
+				import random
+				random.random()
+				random.randint(1, 10)
+				random.choice(iterable)
+				random.shuffle(sequence)
+		
+		Third Party-Packages:
+			Python Package Index: pypi.org
+			
+			a good practice is to check 
+				if researched module already exists in the python built-in modules otherwise in pypi.org
+				
+			pip install <package>==<version>:
+				pip install pyjokes==0.4.0
+				pip install pyjokes #this will automatically install the lastest version of the package
+					import pyjokes
+					print( pyjokes.get_joke('en') )
+				
+			
+		the true power of python comes from the community	
+			
+			
+	Virtual Environments:
+		versionning: version first_num:second_num:third_num
+			third_num: usually used for bug fixes (by incrementing it)
+			second_num: new releases (maybe some added features) 
+			first_num: is usually about breaking changes (major versions)
+			
+		virtual env answers the question of how can we have mutiple versions of any packages
+			on the same machine and still have different projects using different versions
+		 
+		we have tools like pipenv, virtualenv, conda
+		
+		
+	Useful Modules (Built-in Modules):
+	  some specialized data types
+	  
+		from collections import Counter, defaultdict, OrderedDict
+		
+		#counter class create counter object from an iterable
+		#	how is a counter object: { listitem: occurence_in_the_iterable }
+		li = [3,1,3,4,2,3,3]
+		print( Counter(li) ) -> output: {3:4,1:1,2:1,4:1} 
+		
+		#defaultdict: with these object, you can specified a default value for all unexisting key
+		#variable = defaultdict(callabe_function, normal_dictionnary)
+		#default dict first argument must so be a callabe function or None
+			if it's None it will raise KeyError like normal dictionnary
+		dd = defaultdict(lambda: 'DOES NOT EXIST', {'a':1, 'b':2} )
+		dd['y'] -> will output: DOES NOT EXIST
+		
+		#OrderedDict: an OrderedDict retains the order that you insert item into it
+		do = OrderedDict()
+		do['a'] = 1
+		
+		from time import time
+		
+		import datetime
+		datetime.date.today()
+		
+		from array import array
+		#array(typecode, seqence)
+		arr = array('i', [1,2,3])
+		
+		#difference between list and array
+			list are dynamic, 
+				anytime we need we can incrementally increase a list and fill up memory
+			array in python:
+				when we create an array, it sets how much memory we can use in our machine
+				arrays take up less memory and perform faster
+				so when we don't want to use generators and we have a massive list,
+					this is a quick easy way to optimize code
+		
+		there's many modules, so the best way to learn many of them is to just keep coding
+					
+	Dev. Fundamentals 6: Pros and cons of librairies
+		we can have really really good packages but also bad packages
+		so we have to develop that skills to recognize
+			hey this package is really popular with the community, this package is being maintained
+				so most likely it's a good package to use
+		
+		and also remember that adding more and more library to our code
+			means adding more & more code so more and more bytes of data,
+				so projects can get heavier and heavier
+				
+		before importing a library, ask yourself, could i just write this myself ?
+			if writing yourself will be really time consumming or you don't have expertise on that area
+					choose importing
+			
+		so be careful of using any library
+			but also learn to read library documentation, 
+				how to use their tools to create something useful
+				

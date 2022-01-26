@@ -1,0 +1,13 @@
+Contribute to Open Source
+
+Learn to Learn
+
+Start with Why
+
+Terminal Setup:
+	Terminal vs Iterm2
+		Iterm2: github-iterm2-material-design
+	Bash vs Zsh vs Fish
+		Bash: modify bash_profile 'maketecheasier.com/8-useful-and-interesting-bash-prompts/'
+		Zsh: ohmyz.sh
+		Fish: fishshell.com

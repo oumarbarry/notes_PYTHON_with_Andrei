@@ -1,0 +1,23 @@
+Debugging in Python:
+	How to debug code:
+		The act of finding and removing bugs, errors, exceptions from our code is called debugging
+		
+		WAY to debug more efficiently:
+			linting: that can be provide by pylint
+				PyCharm has already built-in linting
+				we can install pylint for code editor like vscode
+			
+			IDEs, LEARNING TO READ ERRORS
+			
+			print function: is also a really quick and easy way to debug our code
+			
+			Python Debugger (PDB): a built-in python module
+				pdb is extremely useful because it allows us to interact with the code
+				
+				import pdb
+				
+				def add(num1, num2):
+					pdb.set_trace() #this line will lauch the pdb interactive shell, type 'help' for documentation
+					return num1+num2
+	
+				add(4,5)

@@ -1,0 +1,292 @@
+Scripting In Python:
+    Scripting:
+        this is just a general term to say that we're writing scripts, 
+			scripts using Python to do something for us, to use the power of the machines,
+				to help us be more productive, more efficient		
+		so scripting is all about making our lives easier
+		
+	Developer Fundamentals 7: Pick the RIGHT library !
+		it's about to develop the skill of finding the right library
+		
+	Image Processing:
+		for e-afroman, i will save a lot of money by processing the plateform images,
+			like by compressing them	
+		
+	Images with Python:
+		image processing is something that can be done with Photoshop or another simple editing software,
+			but where scripting in Python really shines is when we have to process ton of images
+				because things (like processing ton of images) can be done really really fast with Python
+		
+		remenber when learning a library, there's nothing better than the documentation
+		but don't try to know by heart an entire library
+			when a need arises, just read the documentation, that's what good developers do
+			
+		unsplash.com: an awesome website where to download for free really good images
+		
+		pip install Pillow
+		example:
+			from PIL import Image, ImageFilter
+			
+			img = Image.open("./Pokedex/pikachu.jpg")
+			img.format
+			img.size
+			img.mode
+			dir(img)
+			
+			fil_img = img.filter(ImageFilter.SHARPEN) #ImageFilter.BLUR, ImageFilter.SMOOTH
+			fil_img.save("filtered.png", "png") #PNG works well with ImageFilter, JPEG not
+			
+			filtered_img = img.convert("L")
+			filtered_img.save("grey.png", "png")
+			filtered_img.show()
+		
+			rotato = filtered_img.rotate(180)
+			rotato.save("rotato.png", "png")
+			
+			resize = filtered_img.resize( (300, 300) )
+			resize.save("resized.png", "png")
+			
+			box = (100,100,400,400)
+			region = filtered_img.crop(box)
+			region.save("cutted.png", "png")
+			
+			astr = Image.open("./astro.jpg")
+			astr.thumbnail( (400,400) ) #this method keep the image aspect ratio, unlike the resize method
+			ast.save("astro_thum.jpg")
+		
+		JPG to PNG Converter:
+			python JPGtoPNGconverter.py SourceFolder/ DestinationFolder/
+			
+			import sys, os
+			from PIL import Image
+			
+			jpg_folder = sys.argv[1]
+			output_folder = sys.argv[2]
+		
+			if not os.path.exists(output_folder):
+				os.makedirs(output_folder)
+				
+			for filename in os.listdir(jpg_folder):
+				img = Image.open(f"{jpg_folder}/{filename}")
+				clean_name = os.splitext(filename)[0]
+				img.save(f"{output_folder}/{clean_name}")
+			
+			print("all done !")
+			
+			
+		OPEN CV:
+			image processing is similar to video processing, 
+				they're both essentially analyzing a frame of an image and doing something with that data
+			so pillow is really great for simple images
+				where opencv is a powerful library used with ML like self-driving car
+			
+		
+		PDFs with Python:
+			pip install PyPDF2
+			pdf.py:
+				import PyPDF2
+				
+				with open("dummy.pdf", 'rb') as file:
+					reader = PyPDF2.PdfFileReader(file)
+					print(reader.numPages)
+					
+					page = reader.getPages(0)
+					page.rotateCounterClockwise(180)
+					
+					writer = PyPDF2.PdfFileWriter()
+					writer.addPage(page)
+					
+					with open("rotate.pdf", 'wb') as new_file:
+						writer.write(new_file)
+			
+			
+			pdf2.py:
+				import PyPDF2
+				import sys
+				
+				inputs = sys.argv[1:]
+				
+				def pdf_combiner(pdf_list):
+					merger = PyPDF2.PdfFileMerger()
+					for pdf in pdf_list:
+						merger.append(pdf)
+					merger.write("super.pdf")
+				
+				pdf_combiner(inputs)
+				
+			watermarker.py: 
+				python watermarker.py super.pdf wtr.pdf
+				
+				import PyPDF2
+				
+				template = PyPDF2.PdfFileReader(open(sys.argv[1], 'rb'))
+				watermark = PyPDF2.PdfFileReader(open(sys.argv[2], 'rb'))
+				output = PyPDF2.PdfFileWriter()
+				
+				for i in range(template.getNumPages()):
+					page = template.getPage(i)
+					page.mergePage(watermark.getPage(0))
+					output.addPage(page)
+				
+				with open("watermarked_output.pdf", 'wb') as file:
+					output.write(file)
+		
+
+		SENDING EMAILS WITH PYTHON:
+			email_sender.py:
+				import smtplib
+				from email.message import EmailMessage
+				
+				email = EmailMessage()
+				email['from'] = 'Oumar Barry'
+				email['to'] = 'your@email.com'
+				email['subject'] = 'Sending Email with Python Code'
+				
+				email.set_content('Successful test')
+				
+				with smtplib.SMTP(host='smtp.gmail.com', port='537') as smtp:
+					smtp.ehlo()
+					smtp.starttls()
+					
+					smtp.login('my@email.com', 'my_password')
+					smtp.send_message(email)
+					print("all good")
+				
+			custom_email_sender.py:
+				import smtplib
+				from email.message import EmailMessage
+				from string import Template
+				from pathlib import Path
+				
+				
+				email = EmailMessage()
+				email['from'] = 'Oumar Barry'
+				email['to'] = 'your@email.com'
+				email['subject'] = 'Sending Html Email with Python Code'
+				
+				html = Template(Path('index.html').read_text())
+				html = html.substitute(name='Momo', pwd='jsd') #== html.substitute({'name':'Oumar', 'pwd':'jsd'})
+				email.set_content(html, 'html')
+				
+				with smtplib.SMTP(host='smtp.gmail.com', port='537') as smtp:
+					smtp.ehlo()
+					smtp.starttls()
+					
+					smtp.login('my@email.com', 'my_password')
+					smtp.send_message(email)
+					print("all good")
+		
+		
+		PASSWORD CHECKER:
+			how hackers hack password:
+				they use dictionnary brut force attacks, dictionnary of all leaked password
+			haveibeenpwned.com:
+				we will use their password api
+				yes their website use https but the most secure is to not trust anyone
+					so we will build our own password checker like do some best password managers tools
+					
+				Password API:
+					import requests
+					import hashlib
+					
+					def request_password_api(query_hash_chars):
+						url = '' + query_hash_chars
+						res = requests.get(url)
+						return res
+						
+					def get_pwd_leaks_count(hashes, hash_to_check):
+						hashes = (line.split(':') for line in hashes.text.splitlines())
+						for hash,count in hashes:
+							if hash == hash_to_check:
+								return count
+						return 0
+						
+					def check_pwned_pwd(password):
+						sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest()
+						first5char, tail = sha1password[:5], sha1password[5:]
+						response = request_password_api(first5char)
+						return get_pwd_leaks_count(response, tail)
+					
+					def main(password_list)	
+						for pwd in password_list:
+							count = check_pwned_pwd(pwd)
+							if count:
+								print(f"{pwd} was been found {count} times... Urgently Change your password")
+							else:
+								print(f"{pwd} was NOT found {count} times... Carry on !")
+						return 'all done !'
+					
+					
+					
+					if __name__=='__main__':
+						try:
+							with open('pwd_to_test.txt', 'r') as file:
+								pwd_list = file.readlines()
+						except FileNotFound as err:
+							print(err)
+						else:
+							sys.exit( main(pwd_list) )
+						
+						
+						
+		TWITTER BOTS:
+			apply to developer.twitter.com to gain access to twitter api and so create an app and get keys 
+			
+			Tweepy: an easy-to-use Python library for accessing the Twitter API
+				
+			pip install tweepy	
+				import tweepy
+				import time
+				
+				auth = tweepy.OAuthHandler(consumer_key, consumer_key_secret)
+				auth.set_access_token(access_token, access_token_secret)
+				
+				api = tweepy.API(auth)
+				user = api.me() #user.name, user.screen_name, user.followers_count
+				
+				public_tweets = api.home_timeline()
+				for tweet in public_tweets:
+					print(tweet)
+					
+				def limit_handler(cursor):
+					try:
+						while True:
+							yield cursor.next()
+					except tweepy.RateLimitError:
+						time.sleep(300)
+				
+				for follower in limit_handler( tweepy.Cursor(api.followers).items() ):
+					if follower.followers_count > 100:
+						follower.follow()
+				
+				search_str = 'Oumar Barry'
+				number_of_tweets = 5
+				
+				for tweet in tweepy.Cursor(api.search, search_str).items(number_of_tweets):
+					try:
+						tweet.favorite() #can also be done tweet.retweet(), etc
+						print(f"liked tweet {tweet}")
+					except tweepy.TweepError as err:
+						print(err.reason)
+					except StopIteration:
+						break
+						
+					
+		SMS WITH PYTHON:
+			Twilio: Communication APIs for SMS, Voice, Video and Authentication
+			
+				create an account, create a twilio phone number, verified the 'to' number,  get the paid version if you can
+				read their documentation, 
+				notice that they generate all the below code for us
+				
+			pip install twilio
+			
+			from twilio.rest import Client
+			
+			account_sid = = "check it from the dashboard"
+			auth_token = "check it from the dashboard too"
+			
+			client = Client(account_sid, auth_token)
+			msg = client.messages.create(from='myTwilioPhoneNumber', body='HELLOOO', to='ARealPhoneNumber')
+		
+			print(msg.sid)

@@ -1,0 +1,85 @@
+Testing in Python:
+	Testing:
+		is a method in software development where 
+			individual units of source code such as functions are tested to see wheter they work properly
+			
+		it's a common practice with testing where we try and break things until the function become perfect
+		
+	Unittest:
+		script.py
+			def do_stuff(num):
+				try:
+					if num or num!=0:
+						return int(num)+5
+					else:
+						return "enter a fucking number"
+				except ValueError as err:
+					return err
+					
+		test.py
+			import unittest
+			import script
+			class TestMain(unittest.TestCase):
+				#check the unittest docs for all other assert methods
+				def setUp(self):
+					print("default function that will be run before the call of each test method")
+				
+				def test_do_stuff1(self):
+					''' Comment that will be visible when we run python -mv unittest '''
+					test_data=10
+					result = script.do_stuff(test_data)
+					self.assertEqual(result, 15)
+				
+				def test_do_stuff2(self):
+					test_data="aejdsbd"
+					result = script.do_stuff(test_data)
+					self.assertIsInstance(result, ValueError)
+				
+				def test_do_stuff3(self):
+					test_data=None
+					result = script.do_stuff(test_data)
+					self.assertEqual(result, "enter a fucking number")
+				
+				def test_do_stuff4(self):
+					test_data=""
+					result = script.do_stuff(test_data)
+					self.assertEqual(result, "enter a fucking number")
+				
+				def test_do_stuff5(self):
+					test_data=0
+					result = script.do_stuff(test_data)
+					self.assertEqual(result, 5)
+					
+				def tearDown(self):
+					print("default function that will be run at the end of test method that we call")
+			
+			if __name__ == '__main__':
+				unittest.main()
+			
+			
+	Writing Unit Tests:
+	
+		when it comes to tests because they dont't go into production, this is just for development purposes
+			readability is the most important
+				so we don't care as much about not repeating ourself 
+					and making our code efficient, nice and small
+			so let's write test that are really descriptive
+		
+		instead of running one test file only with: python the_test_file_name.py
+		we can run multiple test file 
+			located in the directory where we launch the cmd
+				at the same time with:
+			python -m unittest -v
+			
+		the whole point of testing is to just simply look at code and how it can be improve,
+			how it can be break, how it can be simplify by breaking it into smaller units,
+				smaller units that can be tested to fix some errors
+					that perhaps we wouldn't have thought about
+		
+		there's an infine number of tests that we can write,
+			so the idea is to write good quality tests that cover most of the cases
+		
+		sometimes depending on the job requirements, we may have to focus more on tests, less on code
+			sometimes we need doing things fast and don't have time to write test
+		
+		the more tests we have, usually means the more stable is our code

@@ -1,0 +1,207 @@
+Python Basics:
+	These are the 4 key things to learn a programming language:
+		- Terms: to understand
+		- Data types: what type of data this language can managed
+		- Actions: what kind of process can we perform on the data
+		- Best practices
+		
+	Developer fundamentals 1: 
+		Don't read the documentation like reading a dictionnary word by word,
+		but just know that this word/key exits in the docs, so you know how to find it
+		Don't learn a language as if you're trying to get 100% on a test
+		
+		Learn a language by using it, by focusing on the things that actually matter
+	
+	For Andrei, programs are just data that's being stored, changed and removed, that's all programs are
+	
+	DATA TYPES:
+		#Fundamentals data types: int, float, bool, str, list, tuple, dict, set
+		#Classes: -> that allow us to create custom data types
+		#Specialized data types -> custom class that come from other, from modules like DataFrame type
+		#NoneType: -> that mean nothing haha
+		 
+		int: integers & float: floating point number //read about float on docs.python.org
+			math ops:
+				basics: 
+					+ - * / (remember that in python3 division will always return a whole float number)
+					(** that mean pow)
+					(// mean divided by the result will be rounded down)
+					(% give the remainder of the division)
+					
+				built-in python math function: don't need to memorize them, just google for a list of them
+	  
+				Operator Precedence: from to top order(the first that will be run) to below
+					1.() 
+					2.** 
+					3. * /  the two as the same level mean in 6/2*3, 4/2 will be first calcule then 4*3
+					4. + - same things as the previous
+				
+				
+				Bonus:
+					complex: 
+						complex number is the last type of numbers data type in python
+						help to create a complex number from a real part and an optionnal imaginary part
+						99% the time, you won't use them, but good to know
+						
+					bin(): function that return the binary version of an int as a string
+						
+					int('binary_number', base=2) : returns the int value of a binary number
+						
+		
+		Variables:
+			assigning value to a variable == binding value to a variable
+			variable can be reassigned
+			three small tips about variable to take care of:
+				constant are name in all letters capitalized
+				Dunder/magic variable/method/function like: 
+					__file__ are meant to be left alone,
+					don't create variable that name start with __ or same ends with __
+					dont't name variable like dunders are
+				
+				a,b,c=1,2,3
+				
+			Best practices for NAMING variable in python community:
+				they are named in snake_case,
+				start only with letters or underscore, (when start with underscore, mean it's private variable)
+				can contains letters, numbers and underscore,
+				can be case sensitive,
+				can't, don't, must not overwrite keywords
+			
+			a good programmer is somebody that's able to name variable very well,
+			so if a new developer comes and looks at the code, it's easily understandable
+		
+		Expressions vs Statements:
+			Expressions: it's piece of code that procude a value
+			Statements: a statement is an entire line of code that performs some sort of action
+			
+		Augmented Assignment Operator: it's the += or -= ... 
+		
+		String: just piece of text
+			we can border them with: 
+				'' or "" for single line piece of text
+				''' ''' or """ """ for multiple lines
+				
+			string concatenation: mean simply adding strings together, work only with string
+			string multiplication: 'a' * 3  = 'aaa'
+		
+		Type conversion: int(), str(), ...
+		
+		Escape Sequences: 
+			it's assuming that whatever come afer a backslash is a string in an piece of text
+			like in this example: weather = "it's a \"nice\" day of rain  \\W/"
+			we have too: exple1 = "\t for adding tab after the backslash"
+						 exple2 = "for adding break line \n so then this part goes to a new line"
+			
+			there are other escape sequence in python, feel free to look at them at docs.python.org
+			
+		Formatted strings:
+			print(f"Hello, {name} that is {age} old")
+			this a new feature of python3,
+			by adding f at the beginning, it's saying it's going to be a formatted string,
+			so make available these variable inside the piece of text, made them available as strings
+			
+			before f strings, and again today, we have format() string method
+			
+		String Indexes / String slicing: [start:end:stepover] //it's something unique to python
+			 
+			 
+		Immutability:
+			string item can not be changed:
+				text = "i am a text"
+				string[0] = "a" //will raise: 'str' object does not support item assignment
+					
+			but the, an entire string variable can be reassigned
+			
+		Built-in Functions: like len(), int(), round()... / Built-in Methods: like string.upper()...
+		
+		Booleans
+		
+		Dev. Fundamentals 2: Commenting your code
+			Code must be easy to read first, then for important things add valuable comments
+			res: realpython.com/python-comments-guide
+			
+		
+		Lists: 
+			ordered sequence of objects(of any types)
+			Data Structure: 
+				a container that a different pros and cons about accessing, writng, removing data
+				lists are data structure
+		
+		Lists Slicing: 
+			lists are mutable
+			list slicing create a new list, it doesn't modify the original one
+			li = another_list #li becomes a link in memory to another_list variable
+			li = another_list[:] == li = another_list.copy() #the two var get separate instance in memory
+		
+		Matrix: multi-dimensional array # li[1][2]
+		
+		List Methods: they change/modify the original list, they don't create a copy like strings docs
+			#Adding
+				li.append() -- add at the end of the list
+				li.insert(index, value) -- add at the index specified
+				li.extend([an_iterable]) -- add an iterable (such as a list) at the end of the list
+				
+			#Removing
+				li.pop() --> remove the last item of the list #exception: pop return the deleted item value
+				li.pop(index) --> remove the item at the specified index
+				li.remove(value) --> remove the first encountered value
+				li.clear() --> clear all the list
+			#Bonus
+				li.index(value, start, stop)
+				'a' in li
+				li.count(value) -- return the occurence of the value
+			
+				li.sort(reverse=False) -- this built-in method modify the list in-place
+				sorted(li) -- this built-in func create a copy of the list 
+				li.reverse() -- it's will only switch the end to beginning, etc and vice-versa
+				li.copy() -- copy the list and return a new list
+				
+				range(start=0, stop)
+				','.join([list])
+				
+		List Unpacking: a, b, c, *other, d = [1,2,3,4,5,6,7,8,9]
+						a=1, b=2, c=3, d=[4,5,6,7,8], d=9
+		
+		None
+
+		Dev. Fundamentals 3: Understanding when and what kind of Data Structures to use
+
+		Dict: unordered key-value pair
+			dictionnary = {} 	or	 dictionnary = dict(name='value')
+			
+			dictionnary.get('age')
+				-- will return None if the key doesn't exist in the dictionnary
+				-- very valuable because it won't return error 'KeyError' like dictionnary['age']
+			dictionnary.get('age', 'default_value') -- will assign the default value if the key doesn't exist in the dictionnary
+			
+			di.keys(), di.values(), di.items()
+			di.copy()
+			di.clear()
+			di.pop('key')
+			di.popitem() -- remove randomly an item(key-value pair) of the dictionnary
+			di.update({item_to_update/new_item})
+			
+		Dictionnary Keys:
+			have special property, a key need to be immutable 
+			a key has to be unique, otherwise the last will overwrite the previous ones
+		
+		Tuples: immutable list
+		
+		Set: unordered collection of unique objects
+			on a set, there's no duplicate values
+			
+			se.clear(), se.copy()  
+			
+			se.difference(another_set) #return a new set compose of the item, that is not included in 'another_set'
+			se.difference_update(another_set) #check the diiference and modify the 'se' set with the new set result
+			se.intersection(another_set) 	# se & another_set
+			se.union(another_set)			# se | another_set
+			se.isdisjoint(another_set) #return true if the two set doesn't have any value in common
+			se.issubset(another_set) #check if 'se' is included in 'another_set'
+			se.issuperset(another_set) #check if 'se' contains 'another_set' 
+			
+			
+	Index of Terms:
+		Expressions and Statements
+		Immutability
+		
